@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Assignment 6 - WebApps</title>
+
+ </head>
+<body>
+
+    <h1>Musician guess by - Pravallika Kakanoori</h1>
+    <h2>Getting input</h2>
+
+    <form>
+        <label for="form1_age">Enter the secret musician name </label>
+        <input type ="password" id="form1_secret_name" name="form1_age" min=10 max=50 step=2 value="John Lennon"> <br>
+
+        <label for="form1_nick">Guess the musician </label>
+        <input type ="text" id="form1_name" name="form1_nick" autofocus> <br>
+
+        <input type="button" onclick="checkGuess()" value="Check the guess">
+    </form>
+
+
+    <p id="result"></p>
+
+    <script> 
+    correct = 0;
+    wrong = 0;
+    function checkGuess(){
+        secret_name = document.getElementById("form1_secret_name").value
+        guessed_name = document.getElementById("form1_name").value
+        
+        output = document.getElementById("result")
+        if(secret_name == guessed_name){
+            alert("You got it right")
+            correct++;
+        } else {
+            alert("Wrong Musician")
+            wrong++;
+        }
+        output.innerHTML = "Correct guess = "+ correct + "\nWrong guess = " + wrong
+    }
+    </script>
+
+</body>
+</html> 
