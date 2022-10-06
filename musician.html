@@ -20,11 +20,15 @@
     </form>
 
 
-    <p id="result"></p>
+    <p id="result">the text replaced will be displayed here</p>
+    <div class="container">
+        <img src="alderflies.jpg" id="image" onclick="swapImage()" alt="alderflies" style="width: 100px;height: 100px;">
+    </div>
 
     <script> 
     correct = 0;
     wrong = 0;
+    useImage=1;
     function checkGuess(){
         secret_name = document.getElementById("form1_secret_name").value
         guessed_name = document.getElementById("form1_name").value
@@ -39,6 +43,20 @@
         }
         output.innerHTML = "Correct guess = "+ correct + "\nWrong guess = " + wrong
     }
+    
+    function swapImage() {
+            switch (useImage) {
+                case 1: useImage = useImage + 1
+                    image.src = "katydid1.jpg";
+                    break;
+                case 2: useImage = useImage + 1
+                    image.src = "alderflies.jpg";
+                    break;
+                case 3: useImage = useImage + 1
+                    image.src = "killerant.jpg";
+                    break;
+            }
+        }
     </script>
 
 </body>
