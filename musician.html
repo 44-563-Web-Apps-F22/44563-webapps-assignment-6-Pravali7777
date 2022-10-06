@@ -4,6 +4,19 @@
     <title>Assignment 6 - WebApps</title>
 
  </head>
+ <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+    <title>Assignment-6</title>
+</head>
 <body>
 
     <h1>Musician guess by - Pravallika Kakanoori</h1>
@@ -29,20 +42,31 @@
     correct = 0;
     wrong = 0;
     useImage=1;
-    function checkGuess(){
-        secret_name = document.getElementById("form1_secret_name").value
-        guessed_name = document.getElementById("form1_name").value
-        
-        output = document.getElementById("result")
-        if(secret_name == guessed_name){
-            alert("You got it right")
-            correct++;
-        } else {
-            alert("Wrong Musician")
-            wrong++;
+    function giveAlert() {
+            alert("Sorry, game over");
         }
-        output.innerHTML = "Correct guess = "+ correct + "\nWrong guess = " + wrong
-    }
+        function checkGuess() {
+            console.log("Getting form values")
+            age = document.getElementById("form1_age").value
+            nick = document.getElementById("form1_nick").value
+            confirmed = confirm("Are these the values? " + age + " and " + nick)
+            out = document.getElementById("result")
+            if (age == nick) {
+                alert("You got it right")
+                correct = correct + 1
+                out.innerHTML = "Correct answer: " + correct + " Wrong answer: " + wrong;
+            } else if (wrong >= 3) {
+                document.getElementById("btn").onclick = giveAlert();
+                //alert("pankaj")
+                //wrong = wrong + 1                
+                out.innerHTML = "Correct answer: " + correct + " Wrong answer: " + wrong;
+            }
+            else {
+                alert("Wrong Musician");
+                wrong = wrong + 1
+                out.innerHTML = "Correct answer: " + correct + " Wrong answer: " + wrong;
+            }
+        }
     
     function swapImage() {
             switch (useImage) {
